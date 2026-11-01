@@ -31,3 +31,8 @@ build/
 
 ### VS Code ###
 .vscode/
+
+### Spring Boot Secrets ###
+# application.properties contains real DB credentials and JWT secret
+# Use application-example.properties as a template instead
+src/main/resources/application.properties

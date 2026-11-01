@@ -1,4 +1,5 @@
 
+import os
 from fastapi import FastAPI
 from app.schemas import TransactionRequest, AnomalyResponse
 from app.predictor import predict_transaction
@@ -38,3 +39,11 @@ def predict(transaction: TransactionRequest):
         }
 
     return predict_transaction(transaction)
+
+
+# Allows running directly with: python -m app.main
+# Port is configurable via PORT environment variable (default: 8001)
+if __name__ == "__main__":
+    import uvicorn
+    port = int(os.environ.get("PORT", 8001))
+    uvicorn.run("app.main:app", host="0.0.0.0", port=port, reload=False)
