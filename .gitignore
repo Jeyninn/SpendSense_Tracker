@@ -1,0 +1,32 @@
+
+# Angular
+Frontend/node_modules/
+Frontend/dist/
+Frontend/.angular/
+
+# Python
+spendsense-ml/.venv/
+spendsense-ml/venv/
+spendsense-ml/__pycache__/
+spendsense-ml/**/__pycache__/
+spendsense-ml/.pytest_cache/
+spendsense-ml/*.pyc
+
+# Java / Maven
+Backend/target/
+
+# Environment and secrets
+.env
+.env.*
+!.env.example
+**/application-local.properties
+
+# IDE and OS
+.idea/
+.vscode/
+.DS_Store
+
+# Logs
+*.log
+
+Backend/src/main/resources/application.properties
