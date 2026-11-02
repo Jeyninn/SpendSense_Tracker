@@ -1,0 +1,79 @@
+
+<nav class="navbar">
+
+  <!-- Brand -->
+  <a routerLink="/" class="navbar-brand">
+    <span class="logo">₹</span>
+    <span class="brand-details">
+      <span class="brand-name">Expense Tracker</span>
+      <span class="brand-tagline">PERSONAL FINANCE JOURNAL</span>
+    </span>
+  </a>
+
+  <!-- Navigation -->
+  <div class="navbar-links">
+
+    <a routerLink="/"
+       routerLinkActive="active"
+       [routerLinkActiveOptions]="{ exact: true }">
+      Home
+    </a>
+
+    <a routerLink="/dashboard"
+       routerLinkActive="active"
+       [routerLinkActiveOptions]="{ exact: true }">
+      Dashboard
+    </a>
+
+    <a routerLink="/expenseform"
+       routerLinkActive="active">
+      Add Expense
+    </a>
+     <a routerLink="/incomeform"
+       routerLinkActive="active">
+      Add Income
+    </a>
+
+    <a routerLink="/expenselist"
+       routerLinkActive="active">
+      Transactions
+    </a>
+    <a
+      routerLink="/spendsense"
+      routerLinkActive="active">
+      SpendSense AI
+    </a>
+
+    @if (userName === "Guest") {
+      <a class="signup-link"
+         routerLink="/signup"
+         routerLinkActive="active">
+        Sign up
+      </a>
+    }
+
+  </div>
+
+  <!-- Right section -->
+  <div class="navbar-actions">
+
+    @if (userName !== "Guest") {
+      <div class="profile">
+        <a routerLink="/profile" class="profile-avatar">
+          {{ userInitial }}
+        </a>
+
+        <div class="profile-info">
+          <span class="profile-name">{{ userName }}</span>
+          <span class="profile-role">PERSONAL ACCOUNT</span>
+        </div>
+      </div>
+    }
+
+    @if (userName === "Guest") {
+      <a routerLink="/login" class="login-link">Log in</a>
+    }
+
+  </div>
+
+</nav>

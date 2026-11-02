@@ -1,0 +1,217 @@
+
+:host {
+  display: block;
+  min-height: 100%;
+}
+
+.income-page {
+  min-height: calc(100vh - 76px);
+  background: #f5f1e9;
+  padding: 55px 20px;
+  font-family: 'Inter', sans-serif;
+  color: #443326;
+}
+
+.page-heading {
+  text-align: center;
+  margin-bottom: 35px;
+}
+
+.eyebrow,
+.section-label {
+  font-size: 9px;
+  letter-spacing: 2px;
+  color: #9b8269;
+  font-weight: 600;
+}
+
+.page-heading h1 {
+  font-family: Georgia, serif;
+  font-size: 36px;
+  font-weight: 400;
+  margin: 13px 0;
+  color: #493526;
+}
+
+.page-heading h1 em {
+  color: #987452;
+  font-weight: 400;
+}
+
+.page-heading p {
+  color: #938474;
+  font-size: 12px;
+}
+
+.income-card {
+  max-width: 620px;
+  margin: auto;
+  background: #fcfaf6;
+  padding: 36px 42px;
+  border: 1px solid #e8dfd2;
+  box-shadow: 0 12px 35px rgba(67, 48, 32, 0.05);
+}
+
+.card-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 23px;
+  margin-bottom: 25px;
+  border-bottom: 1px solid #eee7dc;
+}
+
+.card-heading h2 {
+  font-family: Georgia, serif;
+  font-size: 22px;
+  font-weight: 400;
+  margin: 8px 0 0;
+}
+
+.rupee-symbol {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: #eee6d9;
+  color: #725239;
+  font-family: Georgia, serif;
+  font-size: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 21px;
+  flex: 1;
+  min-width: 0;
+}
+
+.form-group label {
+  font-size: 11px;
+  font-weight: 600;
+  color: #574332;
+  margin-bottom: 9px;
+}
+
+.form-group label span {
+  color: #a99a88;
+  font-weight: 400;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 13px 14px;
+  border: 1px solid #e5ddd1;
+  background: #fffefa;
+  color: #493526;
+  font-family: inherit;
+  font-size: 12px;
+  outline: none;
+  border-radius: 2px;
+  transition: border 0.2s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: #987452;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: #b5aa9c;
+}
+
+.form-group textarea {
+  resize: vertical;
+}
+
+.form-row {
+  display: flex;
+  gap: 20px;
+}
+
+.error {
+  color: #a34d3e;
+  font-size: 10px;
+  margin-top: 6px;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  padding-top: 12px;
+  border-top: 1px solid #eee7dc;
+}
+
+.cancel-btn,
+.save-btn {
+  padding: 12px 20px;
+  font-family: inherit;
+  font-size: 11px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.cancel-btn {
+  background: transparent;
+  border: 1px solid #ded3c5;
+  color: #735e4b;
+}
+
+.cancel-btn:hover {
+  background: #f2ede5;
+}
+
+.save-btn {
+  background: #493526;
+  border: 1px solid #493526;
+  color: #fffaf2;
+}
+
+.save-btn:hover {
+  background: #684b35;
+}
+
+.save-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.save-btn span {
+  margin-left: 12px;
+}
+
+.bottom-note {
+  text-align: center;
+  margin-top: 27px;
+  font-family: Georgia, serif;
+  font-size: 12px;
+  font-style: italic;
+  color: #a18d77;
+}
+
+@media (max-width: 600px) {
+  .income-page {
+    padding: 35px 15px;
+  }
+
+  .income-card {
+    padding: 25px 20px;
+  }
+
+  .page-heading h1 {
+    font-size: 29px;
+  }
+
+  .form-row {
+    flex-direction: column;
+    gap: 0;
+  }
+}

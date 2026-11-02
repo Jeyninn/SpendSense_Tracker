@@ -1,0 +1,456 @@
+<!-- NAVBAR -->
+<header class="navbar">
+  <a routerLink="/" class="brand">
+    <span class="brand-icon">₹</span>
+
+    <span class="brand-text">
+      <span class="brand-name">Expense Tracker</span>
+      <span class="brand-tagline">Manage your money.</span>
+    </span>
+  </a>
+
+  <nav class="nav-links">
+    <a href="#features">Features</a>
+    <a href="#how-it-works">How it works</a>
+    <a href="#about">Our philosophy</a>
+   
+  </nav>
+
+   <div class="nav-actions">
+
+    @if (isLoggedIn) {
+
+      <a routerLink="/dashboard" class="btn btn-dark nav-cta">
+        Go to Dashboard <span>↗</span>
+      </a>
+
+    } @else {
+
+      <a routerLink="/login" class="login-link">
+        Log in
+      </a>
+
+      <a routerLink="/signup" class="btn btn-dark nav-cta">
+        Get started <span>↗</span>
+      </a>
+
+    }
+
+  </div>
+</header>
+
+
+<main>
+
+  <!-- HERO SECTION -->
+  <section class="hero">
+
+    <div class="hero-content">
+
+      <div class="eyebrow">
+        <span class="eyebrow-line"></span>
+        A MORE THOUGHTFUL WAY TO MANAGE MONEY
+      </div>
+
+      <h1>
+        Wealth begins<br />
+        with <em>awareness.</em>
+      </h1>
+
+      <p class="hero-description">
+        A calmer approach to personal finance. Track your spending,
+        organize your income, and bring intention to every rupee.
+      </p>
+
+      <div class="hero-actions">
+        <a routerLink="/signup" class="btn btn-dark hero-btn">
+          Begin your journey
+          <span>↗</span>
+        </a>
+
+        <a routerLink="/login" class="secondary-link">
+          Already a member? <span>Log in →</span>
+        </a>
+      </div>
+
+      <div class="hero-note">
+        <span class="note-icon">✦</span>
+        <span>Clarity over complexity. Always.</span>
+      </div>
+
+    </div>
+
+
+    <!-- DECORATIVE FINANCE PREVIEW -->
+    <div class="hero-visual">
+
+      <div class="visual-caption">
+        <span>YOUR FINANCIAL JOURNAL</span>
+        <span>№ 001</span>
+      </div>
+
+      <div class="finance-card">
+
+        <div class="finance-card-top">
+          <div>
+            <span class="card-label">YOUR OVERVIEW</span>
+            <h2>A little more in control.</h2>
+          </div>
+
+          <div class="mini-emblem">₹</div>
+        </div>
+
+        <div class="balance-label">ILLUSTRATIVE BALANCE</div>
+
+        <div class="balance-amount">₹24,850<span>.00</span></div>
+
+        <div class="balance-divider"></div>
+
+        <div class="money-row">
+          <div class="money-info">
+            <span class="money-icon income-icon">↗</span>
+
+            <div>
+              <p>Income</p>
+              <small>This month</small>
+            </div>
+          </div>
+
+          <strong>₹32,000</strong>
+        </div>
+
+        <div class="money-row">
+          <div class="money-info">
+            <span class="money-icon expense-icon">↘</span>
+
+            <div>
+              <p>Expenses</p>
+              <small>This month</small>
+            </div>
+          </div>
+
+          <strong>₹7,150</strong>
+        </div>
+
+        <div class="card-footer">
+          <span>SPEND WITH INTENTION</span>
+          <span>✦</span>
+        </div>
+
+      </div>
+
+      <div class="visual-stamp">
+        <span class="stamp-star">✳</span>
+        <span>YOUR MONEY,<br />YOUR TERMS.</span>
+      </div>
+
+      <div class="visual-bottom-note">
+        A better relationship with money starts here.
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- BRAND STATEMENT -->
+  <section class="philosophy" id="about">
+
+    <div class="section-kicker">
+      <span>01</span>
+      <span>THE PHILOSOPHY</span>
+    </div>
+
+    <div class="philosophy-content">
+      <h2>
+        Financial clarity<br />
+        is a form of <em>freedom.</em>
+      </h2>
+
+      <div class="philosophy-description">
+        <span class="decorative-star">✳</span>
+
+        <p>
+          You don't need complicated spreadsheets or endless
+          calculations to understand your finances. Just a simple,
+          thoughtful space that helps you see where your money goes
+          and decide where it should go next.
+        </p>
+      </div>
+    </div>
+
+  </section>
+
+
+  <!-- FEATURES -->
+  <section class="features-section" id="features">
+
+    <div class="section-heading">
+      <div>
+        <div class="section-kicker">
+          <span>02</span>
+          <span>MADE FOR EVERYDAY LIFE</span>
+        </div>
+
+        <h2>
+          The essentials,<br />
+          <em>beautifully organized.</em>
+        </h2>
+      </div>
+
+      <p class="section-description">
+        Everything you need to build better money habits.
+        Nothing you don't.
+      </p>
+    </div>
+
+
+    <div class="features-grid">
+
+      <article class="feature-card">
+        <div class="feature-top">
+          <span class="feature-number">01 / TRACK</span>
+          <span class="feature-symbol">↗</span>
+        </div>
+
+        <div class="feature-icon">₹</div>
+
+        <h3>Know every expense.</h3>
+
+        <p>
+          Record your daily spending and keep every transaction
+          organized in one place.
+        </p>
+
+        <a routerLink="/signup" class="feature-link">
+          Start tracking <span>→</span>
+        </a>
+      </article>
+
+
+      <article class="feature-card feature-card-dark">
+        <div class="feature-top">
+          <span class="feature-number">02 / GROW</span>
+          <span class="feature-symbol">✳</span>
+        </div>
+
+        <div class="feature-icon">↗</div>
+
+        <h3>Understand your income.</h3>
+
+        <p>
+          Record your income sources and see how money comes into
+          your life.
+        </p>
+
+        <a routerLink="/signup" class="feature-link">
+          Get organized <span>→</span>
+        </a>
+      </article>
+
+
+      <article class="feature-card">
+        <div class="feature-top">
+          <span class="feature-number">03 / DISCOVER</span>
+          <span class="feature-symbol">⌁</span>
+        </div>
+
+        <div class="feature-icon category-icon">◷</div>
+
+        <h3>Find your patterns.</h3>
+
+        <p>
+          Organize expenses by category and discover which habits
+          shape your spending.
+        </p>
+
+        <a routerLink="/signup" class="feature-link">
+          Explore your habits <span>→</span>
+        </a>
+      </article>
+
+
+      <article class="feature-card">
+        <div class="feature-top">
+          <span class="feature-number">04 / UNDERSTAND</span>
+          <span class="feature-symbol">◎</span>
+        </div>
+
+        <div class="feature-icon balance-icon">≈</div>
+
+        <h3>See the bigger picture.</h3>
+
+        <p>
+          Bring income and expenses together to understand your
+          balance at a glance.
+        </p>
+
+        <a routerLink="/signup" class="feature-link">
+          Find your clarity <span>→</span>
+        </a>
+      </article>
+
+    </div>
+
+  </section>
+
+
+  <!-- HOW IT WORKS -->
+  <section class="steps-section" id="how-it-works">
+
+    <div class="steps-intro">
+      <div class="section-kicker light-kicker">
+        <span>03</span>
+        <span>A SIMPLE RITUAL</span>
+      </div>
+
+      <h2>
+        Small steps.<br />
+        <em>Lasting habits.</em>
+      </h2>
+
+      <p>
+        Building financial awareness doesn't have to be difficult.
+        Start small and let consistency do the work.
+      </p>
+
+      <a routerLink="/signup" class="btn btn-light">
+        Start today <span>↗</span>
+      </a>
+    </div>
+
+
+    <div class="steps-list">
+
+      <article class="step">
+        <span class="step-number">01</span>
+
+        <div class="step-content">
+          <h3>Create your account</h3>
+          <p>
+            Set up your personal space and get ready to organize
+            your finances.
+          </p>
+        </div>
+
+        <span class="step-arrow">↗</span>
+      </article>
+
+
+      <article class="step">
+        <span class="step-number">02</span>
+
+        <div class="step-content">
+          <h3>Record your transactions</h3>
+          <p>
+            Add income and expenses as you go. Keep the details
+            simple and organized.
+          </p>
+        </div>
+
+        <span class="step-arrow">↗</span>
+      </article>
+
+
+      <article class="step">
+        <span class="step-number">03</span>
+
+        <div class="step-content">
+          <h3>Make informed decisions</h3>
+          <p>
+            Review your dashboard, understand your balance, and
+            approach spending more intentionally.
+          </p>
+        </div>
+
+        <span class="step-arrow">↗</span>
+      </article>
+
+    </div>
+
+  </section>
+
+
+  <!-- CLOSING QUOTE -->
+  <section class="quote-section">
+
+    <span class="quote-mark">“</span>
+
+    <h2>
+      Spend with purpose.<br />
+      Save with intention.<br />
+      <em>Live on your own terms.</em>
+    </h2>
+
+    <div class="quote-divider"></div>
+
+    <p>THE ART OF FINANCIAL CLARITY</p>
+
+  </section>
+
+
+  <!-- FINAL CTA -->
+  <section class="cta-section">
+
+    <div class="cta-content">
+      <span class="cta-kicker">YOUR NEXT CHAPTER STARTS HERE</span>
+
+      <h2>
+        Make room for<br />
+        <em>better money habits.</em>
+      </h2>
+
+      <p>
+        A little awareness today can make tomorrow feel different.
+        Begin with one simple step.
+      </p>
+
+      <a routerLink="/signup" class="btn btn-dark cta-btn">
+        Create your account <span>↗</span>
+      </a>
+    </div>
+
+    <div class="cta-decoration">
+      <span class="cta-circle circle-one"></span>
+      <span class="cta-circle circle-two"></span>
+      <span class="cta-monogram">₹</span>
+    </div>
+
+  </section>
+
+</main>
+
+
+<!-- FOOTER -->
+<footer class="footer">
+
+  <div class="footer-main">
+
+    <a routerLink="/" class="brand footer-brand">
+      <span class="brand-icon">₹</span>
+
+      <span class="brand-text">
+        <span class="brand-name">Expense Tracker</span>
+        <span class="brand-tagline">Manage your money.</span>
+      </span>
+    </a>
+
+    <p class="footer-message">
+      A more thoughtful relationship with money starts with clarity.
+    </p>
+
+    <div class="footer-links">
+      <a href="#features">Features</a>
+      <a href="#how-it-works">How it works</a>
+      <a routerLink="/login">Log in</a>
+      <a routerLink="/signup">Create account</a>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    <span>© {{ currentYear }} Expense Tracker</span>
+    <span>MADE FOR A MORE MINDFUL LIFE ✳</span>
+  </div>
+
+</footer>

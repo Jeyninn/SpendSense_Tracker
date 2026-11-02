@@ -1,0 +1,112 @@
+
+<div class="expense-form-container">
+
+  <div class="form-heading">
+    <span class="form-subtitle">YOUR FINANCIAL JOURNAL</span>
+    <h2>Add an Expense</h2>
+    <p>Record your spending with intention.</p>
+    <div class="heading-line"></div>
+  </div>
+
+  <form [formGroup]="expenseForm" (ngSubmit)="submit()">
+
+    <div class="form-group">
+      <label for="title">Expense Name</label>
+      <input
+        id="title"
+        type="text"
+        formControlName="title"
+        placeholder="e.g. Grocery shopping"
+      />
+
+      @if (expenseForm.get('title')?.invalid &&
+           expenseForm.get('title')?.touched) {
+        <small class="error">Please enter an expense name.</small>
+      }
+    </div>
+
+    <div class="form-group">
+      <label for="amount">Amount</label>
+      <div class="amount-field">
+        <span class="currency">₹</span>
+        <input
+          id="amount"
+          type="number"
+          formControlName="amount"
+          placeholder="0.00"
+        />
+      </div>
+
+      @if (expenseForm.get('amount')?.invalid &&
+           expenseForm.get('amount')?.touched) {
+        <small class="error">
+          @if (expenseForm.get('amount')?.hasError('required')) {
+            Amount is required.
+          }
+          @if (expenseForm.get('amount')?.hasError('min')) {
+            Amount must be greater than 0.
+          }
+        </small>
+      }
+    </div>
+
+    <div class="form-group">
+      <label for="category">Category</label>
+      <select id="category" formControlName="category">
+        <option value="">Select a category</option>
+        <option value="food">Food</option>
+        <option value="transport">Transport</option>
+        <option value="shopping">Shopping</option>
+        <option value="bills">Bills</option>
+        <option value="entertainment">Entertainment</option>
+        <option value="other">Other</option>
+      </select>
+
+      @if (expenseForm.get('category')?.invalid &&
+           expenseForm.get('category')?.touched) {
+        <small class="error">Please select a category.</small>
+      }
+    </div>
+
+    <div class="form-group">
+      <label for="date">Date</label>
+      <input
+        id="date"
+        type="date"
+        formControlName="date"
+      />
+
+      @if (expenseForm.get('date')?.invalid &&
+           expenseForm.get('date')?.touched) {
+        <small class="error">Please select a date.</small>
+      }
+    </div>
+
+    <div class="form-group">
+      <label for="description">
+        Description <span class="optional">(Optional)</span>
+      </label>
+      <textarea
+        id="description"
+        rows="3"
+        formControlName="description"
+        placeholder="A little note about this expense..."
+      ></textarea>
+    </div>
+
+    <div class="form-actions">
+      <button
+        type="submit"
+        class="submit-btn"
+        [disabled]="expenseForm.invalid"
+      >
+        Add Expense
+      </button>
+    </div>
+
+    <p class="form-footer">
+      A considered approach to everyday spending.
+    </p>
+
+  </form>
+</div>

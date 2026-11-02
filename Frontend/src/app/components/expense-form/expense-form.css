@@ -1,0 +1,198 @@
+
+:host {
+  display: block;
+  min-height: 100%;
+  padding: 35px 20px;
+  background: #f4f0e8;
+  box-sizing: border-box;
+}
+
+.expense-form-container {
+  max-width: 490px;
+  margin: 20px auto;
+  padding: 38px 42px;
+  background: #fbf9f4;
+  border: 1px solid #e5dccd;
+  border-radius: 4px;
+  box-shadow: 0 8px 30px rgba(65, 46, 30, 0.07);
+  font-family: 'Georgia', serif;
+}
+
+.form-heading {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.form-subtitle {
+  display: block;
+  color: #9a8064;
+  font-family: Arial, sans-serif;
+  font-size: 10px;
+  letter-spacing: 2.5px;
+  margin-bottom: 13px;
+}
+
+.form-heading h2 {
+  color: #493629;
+  font-size: 29px;
+  font-weight: 400;
+  margin: 0 0 9px;
+}
+
+.form-heading p {
+  color: #968675;
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.3px;
+  margin: 0;
+}
+
+.heading-line {
+  width: 45px;
+  height: 1px;
+  background: #b69a72;
+  margin: 22px auto 0;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 21px;
+}
+
+.form-group label {
+  color: #594536;
+  font-size: 13px;
+  margin-bottom: 9px;
+}
+
+.optional {
+  color: #a49685;
+  font-size: 11px;
+  font-weight: 400;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 13px 14px;
+  background: #fffefa;
+  border: 1px solid #e1d8ca;
+  border-radius: 3px;
+  color: #493629;
+  font-family: Arial, sans-serif;
+  font-size: 13px;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: #b2a797;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: #967653;
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 85px;
+}
+
+.form-group select {
+  cursor: pointer;
+}
+
+.amount-field {
+  display: flex;
+  align-items: center;
+  background: #fffefa;
+  border: 1px solid #e1d8ca;
+  border-radius: 3px;
+  transition: border-color 0.2s ease;
+}
+
+.amount-field:focus-within {
+  border-color: #967653;
+}
+
+.amount-field .currency {
+  padding-left: 14px;
+  color: #947657;
+  font-size: 17px;
+}
+
+.amount-field input {
+  border: none;
+  background: transparent;
+  flex: 1;
+}
+
+.amount-field input:focus {
+  border: none;
+  box-shadow: none;
+}
+
+.error {
+  color: #a05246;
+  font-family: Arial, sans-serif;
+  font-size: 11px;
+  margin-top: 7px;
+}
+
+.form-actions {
+  margin-top: 28px;
+}
+
+.submit-btn {
+  width: 100%;
+  padding: 14px;
+  background: #493629;
+  color: #fbf8f1;
+  border: 1px solid #493629;
+  border-radius: 3px;
+  font-family: Georgia, serif;
+  font-size: 14px;
+  letter-spacing: 0.6px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.submit-btn:hover:not(:disabled) {
+  background: #69513d;
+  border-color: #69513d;
+}
+
+.submit-btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.form-footer {
+  text-align: center;
+  color: #a39482;
+  font-family: Arial, sans-serif;
+  font-size: 10px;
+  letter-spacing: 0.3px;
+  margin: 21px 0 0;
+}
+
+@media (max-width: 600px) {
+  :host {
+    padding: 15px 12px;
+  }
+
+  .expense-form-container {
+    padding: 30px 23px;
+    margin: 10px auto;
+  }
+
+  .form-heading h2 {
+    font-size: 25px;
+  }
+}

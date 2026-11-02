@@ -1,0 +1,171 @@
+
+<div class="dashboard">
+
+  <!-- Dashboard heading -->
+  <header class="dashboard-heading">
+    <div>
+      <span class="eyebrow">YOUR PERSONAL LEDGER</span>
+      <h1>Financial Overview</h1>
+      <p>A thoughtful view of your financial life.</p>
+    </div>
+
+    <div class="heading-mark">
+      <span>EST.</span>
+      <strong>FINANCE</strong>
+      <span>MANAGEMENT</span>
+    </div>
+  </header>
+
+  <!-- Summary cards -->
+  <section class="summary-cards">
+
+    <div class="summary-card expense-card">
+      <div class="card-top">
+        <span class="card-title">Total Expenses</span>
+        <span class="card-symbol">−</span>
+      </div>
+      <div class="card-value">₹{{ totalExpense | number:'1.2-2' }}</div>
+      <div class="card-description">Your total outflow</div>
+      <div class="card-line"></div>
+    </div>
+
+    <div class="summary-card income-card">
+      <div class="card-top">
+        <span class="card-title">Total Income</span>
+        <span class="card-symbol">+</span>
+      </div>
+      <div class="card-value">₹{{ totalIncome | number:'1.2-2' }}</div>
+      <div class="card-description">Your total earnings</div>
+      <div class="card-line"></div>
+    </div>
+
+    <div class="summary-card balance-card">
+      <div class="card-top">
+        <span class="card-title">Available Balance</span>
+        <span class="card-symbol">◇</span>
+      </div>
+      <div class="card-value">₹{{ balance | number:'1.2-2' }}</div>
+      <div class="card-description">Your financial position</div>
+      <div class="card-line"></div>
+    </div>
+
+    <div class="summary-card transaction-card">
+      <div class="card-top">
+        <span class="card-title">Transactions</span>
+        <span class="card-symbol">≡</span>
+      </div>
+      <div class="card-value">{{ totalTransactions }}</div>
+      <div class="card-description">Recorded transactions</div>
+      <div class="card-line"></div>
+    </div>
+
+  </section>
+
+  <!-- Main dashboard content -->
+  <section class="dashboard-content">
+
+    <!-- Recent transactions -->
+    <div class="dashboard-panel recent-expenses">
+
+      <div class="section-header">
+        <div>
+          <span class="section-eyebrow">YOUR RECORDS</span>
+          <h2>Recent Transactions</h2>
+        </div>
+        <a routerLink="/expenselist">View all ↗</a>
+      </div>
+
+      <div class="expense-list">
+
+        @for (item of recentTransactions; track item.type + '-' + item.id) {
+          <div class="expense-item">
+
+            <div class="expense-info">
+
+              @if (item.type === 'EXPENSE') {
+                <div class="transaction-icon expense-icon">−</div>
+              } @else {
+                <div class="transaction-icon income-icon">+</div>
+              }
+
+              <div class="transaction-details">
+                <h3>{{ item.title }}</h3>
+                <p>{{ item.category }} <span>·</span> {{ item.date }}</p>
+              </div>
+
+            </div>
+
+            @if (item.type === 'EXPENSE') {
+              <span class="expense-amount">
+                − ₹{{ item.amount | number:'1.2-2' }}
+              </span>
+            } @else {
+              <span class="income-amount">
+                + ₹{{ item.amount | number:'1.2-2' }}
+              </span>
+            }
+
+          </div>
+        }
+
+        @if (recentTransactions.length === 0) {
+          <div class="empty-state">
+            <span class="empty-symbol">◇</span>
+            <h3>Your ledger awaits</h3>
+            <p>Your transactions will appear here once recorded.</p>
+          </div>
+        }
+
+      </div>
+    </div>
+
+    <!-- Category breakdown -->
+    <div class="dashboard-panel categories">
+
+      <div class="section-header">
+        <div>
+          <span class="section-eyebrow">SPENDING ANALYSIS</span>
+          <h2>Expenses by Category</h2>
+        </div>
+      </div>
+
+      <div class="category-list">
+
+        @for (item of categoryEntries; track item.category) {
+          <div class="category-item">
+
+            <div class="category-details">
+              <span class="category-name">{{ item.category }}</span>
+
+              <span class="category-total">
+                ₹{{ item.amount | number:'1.2-2' }}
+              </span>
+            </div>
+
+            <div class="progress">
+              <div
+                class="progress-bar"
+                [style.width.%]="
+                  totalExpense > 0
+                    ? (item.amount / totalExpense) * 100
+                    : 0
+                ">
+              </div>
+            </div>
+
+          </div>
+        }
+
+        @if (categoryEntries.length === 0) {
+          <div class="empty-state category-empty">
+            <span class="empty-symbol">◇</span>
+            <p>No expense categories to display yet.</p>
+          </div>
+        }
+
+      </div>
+    </div>
+
+  </section>
+
+</div>

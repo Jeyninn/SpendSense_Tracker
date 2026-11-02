@@ -1,0 +1,435 @@
+
+:host {
+  display: block;
+  min-height: 100%;
+  background: #f4f0e8;
+  padding: 38px 5%;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+.dashboard {
+  max-width: 1450px;
+  margin: auto;
+}
+
+/* Heading */
+
+.dashboard-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 35px;
+}
+
+.eyebrow,
+.section-eyebrow {
+  color: #a18461;
+  font-size: 10px;
+  letter-spacing: 2.4px;
+  font-weight: 600;
+}
+
+.dashboard-heading h1 {
+  color: #493629;
+  font-family: Georgia, serif;
+  font-size: 36px;
+  font-weight: 400;
+  margin: 10px 0 8px;
+}
+
+.dashboard-heading p {
+  color: #8f8070;
+  font-size: 13px;
+  margin: 0;
+}
+
+.heading-mark {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 105px;
+  height: 105px;
+  border: 1px solid #cbb99e;
+  border-radius: 50%;
+  color: #987b59;
+  gap: 4px;
+  transform: rotate(-8deg);
+}
+
+.heading-mark span {
+  font-size: 7px;
+  letter-spacing: 2px;
+}
+
+.heading-mark strong {
+  font-family: Georgia, serif;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 1px;
+}
+
+/* Summary cards */
+
+.summary-cards {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 17px;
+  margin-bottom: 28px;
+}
+
+.summary-card {
+  position: relative;
+  overflow: hidden;
+  min-height: 145px;
+  padding: 23px 22px;
+  background: #fbf9f4;
+  border: 1px solid #e5dccd;
+  border-radius: 3px;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.summary-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(62, 43, 27, 0.08);
+}
+
+.card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.card-title {
+  color: #887763;
+  font-size: 12px;
+  letter-spacing: 0.3px;
+}
+
+.card-symbol {
+  color: #a68a65;
+  font-family: Georgia, serif;
+  font-size: 23px;
+}
+
+.card-value {
+  color: #493629;
+  font-family: Georgia, serif;
+  font-size: clamp(21px, 2vw, 28px);
+  font-weight: 400;
+  margin-top: 20px;
+  overflow-wrap: anywhere;
+}
+
+.card-description {
+  color: #a29585;
+  font-size: 11px;
+  margin-top: 7px;
+}
+
+.card-line {
+  width: 35px;
+  height: 2px;
+  background: #b69a72;
+  margin-top: 17px;
+}
+
+.balance-card {
+  background: #493629;
+  border-color: #493629;
+}
+
+.balance-card .card-title,
+.balance-card .card-description {
+  color: #d0bda6;
+}
+
+.balance-card .card-value {
+  color: #fff9ef;
+}
+
+.balance-card .card-symbol {
+  color: #d0b18a;
+}
+
+.balance-card .card-line {
+  background: #d0b18a;
+}
+
+/* Main content */
+
+.dashboard-content {
+  display: grid;
+  grid-template-columns: 1.55fr 1fr;
+  gap: 22px;
+  align-items: start;
+}
+
+.dashboard-panel {
+  background: #fbf9f4;
+  border: 1px solid #e5dccd;
+  border-radius: 3px;
+  padding: 27px 25px;
+  min-width: 0;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 23px;
+}
+
+.section-header h2 {
+  color: #493629;
+  font-family: Georgia, serif;
+  font-size: 21px;
+  font-weight: 400;
+  margin: 7px 0 0;
+}
+
+.section-header a {
+  color: #987653;
+  font-size: 12px;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: color 0.2s;
+}
+
+.section-header a:hover {
+  color: #493629;
+  text-decoration: underline;
+}
+
+/* Transactions */
+
+.expense-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.expense-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 17px 0;
+  border-bottom: 1px solid #eee8de;
+}
+
+.expense-item:last-child {
+  border-bottom: none;
+}
+
+.expense-info {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-width: 0;
+}
+
+.transaction-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  font-family: Georgia, serif;
+  font-size: 20px;
+}
+
+.expense-icon {
+  background: #eee7dd;
+  color: #80634a;
+}
+
+.income-icon {
+  background: #e8ede3;
+  color: #617454;
+}
+
+.transaction-details {
+  min-width: 0;
+}
+
+.transaction-details h3 {
+  color: #51402f;
+  font-family: Georgia, serif;
+  font-size: 14px;
+  font-weight: 400;
+  margin: 0 0 5px;
+  overflow-wrap: anywhere;
+}
+
+.transaction-details p {
+  color: #a09383;
+  font-size: 11px;
+  text-transform: capitalize;
+  margin: 0;
+}
+
+.transaction-details p span {
+  padding: 0 4px;
+}
+
+.expense-amount,
+.income-amount {
+  font-family: Georgia, serif;
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+.expense-amount {
+  color: #986451;
+}
+
+.income-amount {
+  color: #657b56;
+}
+
+/* Category breakdown */
+
+.category-list {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.category-item {
+  width: 100%;
+}
+
+.category-details {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 11px;
+}
+
+.category-name {
+  color: #66513d;
+  font-size: 13px;
+  text-transform: capitalize;
+}
+
+.category-total {
+  color: #493629;
+  font-family: Georgia, serif;
+  font-size: 13px;
+}
+
+.progress {
+  height: 5px;
+  width: 100%;
+  background: #eee8df;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.progress-bar {
+  height: 100%;
+  background: #987653;
+  border-radius: 5px;
+  transition: width 0.4s ease;
+}
+
+/* Empty states */
+
+.empty-state {
+  text-align: center;
+  padding: 45px 15px;
+}
+
+.empty-symbol {
+  display: block;
+  color: #b49a78;
+  font-family: Georgia, serif;
+  font-size: 30px;
+  margin-bottom: 12px;
+}
+
+.empty-state h3 {
+  color: #594536;
+  font-family: Georgia, serif;
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.empty-state p {
+  color: #9b8d7c;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.category-empty {
+  padding: 30px 10px;
+}
+
+/* Responsive */
+
+@media (max-width: 1050px) {
+  .summary-cards {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .dashboard-content {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  :host {
+    padding: 25px 15px;
+  }
+
+  .dashboard-heading {
+    align-items: flex-start;
+  }
+
+  .dashboard-heading h1 {
+    font-size: 27px;
+  }
+
+  .heading-mark {
+    width: 75px;
+    height: 75px;
+  }
+
+  .heading-mark strong {
+    font-size: 9px;
+  }
+
+  .heading-mark span {
+    font-size: 6px;
+  }
+
+  .summary-cards {
+    gap: 11px;
+  }
+
+  .summary-card {
+    padding: 17px 14px;
+    min-height: 130px;
+  }
+
+  .card-value {
+    font-size: 21px;
+  }
+
+  .dashboard-panel {
+    padding: 21px 16px;
+  }
+
+  .section-header h2 {
+    font-size: 18px;
+  }
+
+  .expense-amount,
+  .income-amount {
+    font-size: 12px;
+  }
+}

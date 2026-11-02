@@ -1,0 +1,340 @@
+/* =========================
+   SIGNUP PAGE
+========================= */
+
+.signup-page {
+  min-height: calc(100vh - 72px);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 40px 20px;
+
+  box-sizing: border-box;
+
+  background:
+    linear-gradient(
+      rgba(245, 232, 219, 0.72),
+      rgba(245, 232, 219, 0.72)
+    ),
+    url('/dashboard_bg.jpeg');
+
+  background-size: cover;
+  background-position: center;
+}
+
+
+/* =========================
+   SIGNUP CARD
+========================= */
+
+.signup-card {
+  width: 100%;
+  max-width: 470px;
+
+  padding: 42px;
+
+  background: rgba(255, 250, 244, 0.96);
+
+  border: 1px solid #e1cbb8;
+
+  border-radius: 24px;
+
+  box-shadow:
+    0 15px 45px rgba(78, 52, 46, 0.15),
+    0 3px 10px rgba(78, 52, 46, 0.06);
+
+  backdrop-filter: blur(12px);
+
+  box-sizing: border-box;
+}
+
+
+/* =========================
+   BRAND
+========================= */
+
+.brand {
+  display: flex;
+  align-items: center;
+
+  gap: 12px;
+
+  margin-bottom: 35px;
+}
+
+.logo {
+  width: 45px;
+  height: 45px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #5a3825;
+
+  color: #fff8f0;
+
+  border-radius: 13px;
+
+  font-size: 21px;
+
+  font-weight: 700;
+
+  box-shadow:
+    0 5px 12px rgba(90, 56, 37, 0.2);
+}
+
+.brand h1 {
+  margin: 0;
+
+  font-family: Georgia, 'Times New Roman', serif;
+
+  font-size: 18px;
+
+  color: #4a2c20;
+}
+
+.brand p {
+  margin: 3px 0 0;
+
+  font-size: 11px;
+
+  color: #9a7764;
+}
+
+
+/* =========================
+   HEADING
+========================= */
+
+.signup-heading {
+  margin-bottom: 28px;
+}
+
+.signup-heading h2 {
+  margin: 0;
+
+  font-family: Georgia, 'Times New Roman', serif;
+
+  font-size: 30px;
+
+  color: #4a2c20;
+}
+
+.signup-heading h2::after {
+  content: "";
+
+  display: block;
+
+  width: 48px;
+  height: 3px;
+
+  margin-top: 10px;
+
+  background: #b88968;
+
+  border-radius: 10px;
+}
+
+.signup-heading p {
+  margin: 12px 0 0;
+
+  color: #967766;
+
+  font-size: 14px;
+
+  line-height: 1.5;
+}
+
+
+/* =========================
+   FORM
+========================= */
+
+form {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 19px;
+}
+
+.form-group {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 7px;
+}
+
+.form-group label {
+  font-size: 13px;
+
+  font-weight: 700;
+
+  color: #68483a;
+}
+
+
+/* =========================
+   INPUT
+========================= */
+
+.form-group input {
+  width: 100%;
+
+  box-sizing: border-box;
+
+  padding: 13px 15px;
+
+  border: 1px solid #dcc5b2;
+
+  border-radius: 11px;
+
+  background: #fffaf5;
+
+  color: #4a2c20;
+
+  font-size: 14px;
+
+  font-family: inherit;
+
+  outline: none;
+
+  transition: all 0.25s ease;
+}
+
+.form-group input::placeholder {
+  color: #b49a89;
+}
+
+.form-group input:hover {
+  border-color: #bd987c;
+}
+
+.form-group input:focus {
+  border-color: #8d6048;
+
+  background: #fffdf9;
+
+  box-shadow:
+    0 0 0 3px rgba(141, 96, 72, 0.12);
+}
+
+
+/* =========================
+   ERROR
+========================= */
+
+.error {
+  color: #a34f42;
+
+  font-size: 12px;
+
+  font-weight: 500;
+}
+
+
+/* =========================
+   BUTTON
+========================= */
+
+button[type="submit"] {
+  margin-top: 7px;
+
+  padding: 14px 20px;
+
+  border: none;
+
+  border-radius: 11px;
+
+  background: linear-gradient(
+    135deg,
+    #6d4937,
+    #4e3024
+  );
+
+  color: #fffaf4;
+
+  font-size: 15px;
+
+  font-weight: 700;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 6px 15px rgba(78, 48, 36, 0.2);
+
+  transition: all 0.2s ease;
+}
+
+button[type="submit"]:hover {
+  transform: translateY(-2px);
+
+  background: linear-gradient(
+    135deg,
+    #7d5540,
+    #5a3829
+  );
+
+  box-shadow:
+    0 9px 20px rgba(78, 48, 36, 0.25);
+}
+
+button[type="submit"]:active {
+  transform: translateY(0);
+}
+
+
+/* =========================
+   LOGIN
+========================= */
+
+.login-text {
+  margin: 25px 0 0;
+
+  text-align: center;
+
+  color: #967766;
+
+  font-size: 13px;
+}
+
+.login-text a {
+  color: #6d4937;
+
+  font-weight: 700;
+
+  text-decoration: none;
+}
+
+.login-text a:hover {
+  color: #4e3024;
+
+  text-decoration: underline;
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 600px) {
+
+  .signup-page {
+    padding: 25px 15px;
+  }
+
+  .signup-card {
+    padding: 30px 24px;
+
+    border-radius: 20px;
+  }
+
+  .signup-heading h2 {
+    font-size: 27px;
+  }
+
+}

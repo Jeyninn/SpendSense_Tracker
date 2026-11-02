@@ -1,0 +1,116 @@
+<div class="signup-page">
+
+  <div class="signup-card">
+
+    <!-- Brand -->
+    
+
+
+    <!-- Heading -->
+    <div class="signup-heading">
+      <h2>Create your account</h2>
+      <p>Start managing your expenses with ease.</p>
+    </div>
+
+
+    <!-- Form -->
+    <form [formGroup]="signupForm" (ngSubmit)="createAccount()">
+
+      <!-- Name -->
+      <div class="form-group">
+
+        <label for="name">Full Name</label>
+
+        <input
+          id="name"
+          type="text"
+          placeholder="Enter your name"
+          formControlName="name"
+        >
+
+        @if (signupForm.controls.name.touched &&
+             signupForm.controls.name.invalid) {
+          <span class="error">
+            Please enter your name.
+          </span>
+        }
+
+      </div>
+
+
+      <!-- Email -->
+      <div class="form-group">
+
+        <label for="email">Email Address</label>
+
+        <input
+          id="email"
+          type="email"
+          placeholder="you@example.com"
+          formControlName="email"
+        >
+
+        @if (signupForm.controls.email.touched &&
+             signupForm.controls.email.invalid) {
+          <span class="error">
+            Please enter a valid email.
+          </span>
+        }
+
+      </div>
+
+
+      <!-- Password -->
+      <div class="form-group">
+
+        <label for="password">Password</label>
+
+        <input
+          id="password"
+          type="password"
+          placeholder="Create a password"
+          formControlName="password"
+        >
+
+        @if (signupForm.controls.password.touched &&
+             signupForm.controls.password.invalid) {
+          <span class="error">
+            Password must be at least 6 characters.
+          </span>
+        }
+
+      </div>
+
+
+      <!-- Confirm Password -->
+      <div class="form-group">
+
+        <label for="confirmPassword">Confirm Password</label>
+
+        <input
+          id="confirmPassword"
+          type="password"
+          placeholder="Confirm your password"
+          formControlName="confirmPassword"
+        >
+
+      </div>
+
+
+      <!-- Button -->
+      <button type="submit">
+        Create Account
+      </button>
+
+    </form>
+
+
+    <!-- Login -->
+    <p class="login-text">
+      Already have an account?
+      <a routerLink="/login">Log in</a>
+    </p>
+
+  </div>
+
+</div>

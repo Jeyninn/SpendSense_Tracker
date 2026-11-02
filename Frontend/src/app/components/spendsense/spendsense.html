@@ -1,0 +1,320 @@
+
+<div class="spend-page">
+
+  <!-- Page heading -->
+  <section class="page-heading">
+    <div>
+      <h1>SpendSense <span>AI.</span></h1>
+      
+    </div>
+
+    <div class="model-stamp">
+      <span class="stamp-top">EST.</span>
+      <span class="stamp-main">SPEND</span>
+      <span class="stamp-bottom">INTELLIGENCE</span>
+    </div>
+  </section>
+
+  <!-- Loading -->
+  @if (loading) {
+    <div class="status-card">
+      <div class="loader"></div>
+      <p>Analysing your financial records...</p>
+    </div>
+  }
+
+  <!-- Error -->
+  @if (!loading && error) {
+    <div class="status-card error-card">
+      <h3>Unable to load insights</h3>
+      <p>{{ error }}</p>
+      <button class="retry-btn" (click)="loadInsights()">
+        Try again
+      </button>
+    </div>
+  }
+
+  @if (!loading && !error) {
+
+
+    <!-- Monthly Spending Summary -->
+    @if (summary) {
+      <section class="monthly-summary">
+
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">MONTHLY FINANCIAL OVERVIEW</p>
+            <h2>Your Spending at a Glance</h2>
+            
+          </div>
+        </div>
+
+        <!-- Total Spending -->
+        <div class="summary-grid monthly-summary-grid">
+          <article class="summary-card">
+            <div class="card-top">
+              <span>Total Spent This Month</span>
+              <span class="card-icon">₹</span>
+            </div>
+            <h2>₹{{ summary.totalSpent.toFixed(2) }}</h2>
+            <p>Your current monthly expenditure</p>
+          </article>
+
+          <article class="summary-card">
+            <div class="card-top">
+              <span>Previous Month</span>
+              <span class="card-icon">◷</span>
+            </div>
+            <h2>
+              ₹{{ summary.monthlyComparison.previousMonthSpent.toFixed(2) }}
+            </h2>
+            <p>Previous month's expenditure</p>
+          </article>
+
+          <article class="summary-card">
+            <div class="card-top">
+              <span>Monthly Change</span>
+              <span class="card-icon">↗</span>
+            </div>
+
+            @if (summary.monthlyComparison.percentageChange !== null) {
+              <h2>
+                {{ summary.monthlyComparison.percentageChange.toFixed(1) }}%
+              </h2>
+              <p>Compared to previous month</p>
+            } @else {
+              <h2>--</h2>
+              <p>Not enough previous-month data</p>
+            }
+          </article>
+
+        </div>
+
+        <!-- Category Breakdown -->
+       
+<!-- Category Breakdown -->
+<section class="insights-section category-section">
+
+  <div class="section-heading">
+    <h2>Spending Breakdown</h2>
+  </div>
+
+  @if (summary.categoryBreakdown.length > 0) {
+
+    <div class="category-chart-layout">
+
+      <!-- Doughnut Chart -->
+      <div class="chart-container">
+        <canvas #categoryChart></canvas>
+      </div>
+
+      <!-- Category Legend -->
+      <div class="category-legend">
+
+        @for (
+          category of summary.categoryBreakdown;
+          track category.category;
+          let i = $index
+        ) {
+
+          <div class="legend-item">
+
+            <div class="legend-left">
+              <span
+                class="legend-dot"
+                [class]="'legend-dot color-' + i">
+              </span>
+
+              <span>{{ category.category | titlecase }}</span>
+            </div>
+
+            <div class="legend-right">
+              <strong>
+                ₹{{ category.amount.toFixed(2) }}
+              </strong>
+
+              <span>
+                {{ category.percentage.toFixed(1) }}%
+              </span>
+            </div>
+
+          </div>
+        }
+
+      </div>
+
+    </div>
+
+  } @else {
+    <p>No category spending recorded this month.</p>
+  }
+
+</section>
+
+
+        <!-- Personalized Recommendations -->
+        <section class="insights-section">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">PERSONAL FINANCIAL GUIDANCE</p>
+              <h2>Recommendations</h2>
+            </div>
+          </div>
+
+          <div class="recommendation-list">
+            @for (recommendation of summary.recommendations; track $index) {
+              <article class="recommendation-card">
+                <span class="recommendation-icon">✦</span>
+                <p>{{ recommendation }}</p>
+              </article>
+            }
+          </div>
+        </section>
+
+      </section>
+    }
+
+
+    <!-- Summary cards -->
+    <section class="summary-grid">
+
+      <article class="summary-card">
+        <div class="card-top">
+          <span>Transactions Analysed</span>
+          <span class="card-icon">◷</span>
+        </div>
+        <h2>{{ insights.length }}</h2>
+        <p>Your reviewed records</p>
+      </article>
+
+      <article class="summary-card anomaly-card">
+        <div class="card-top">
+          <span>Unusual Transactions</span>
+          <span class="card-icon">!</span>
+        </div>
+        <h2>{{ anomalyCount }}</h2>
+        <p>Patterns worth reviewing</p>
+      </article>
+
+      <article class="summary-card high-card">
+        <div class="card-top">
+          <span>High Severity</span>
+          <span class="card-icon">↑</span>
+        </div>
+        <h2>{{ highCount }}</h2>
+        <p>Requires closer attention</p>
+      </article>
+
+      <article class="summary-card medium-card">
+        <div class="card-top">
+          <span>Medium Severity</span>
+          <span class="card-icon">◇</span>
+        </div>
+        <h2>{{ mediumCount }}</h2>
+        <p>Unusual spending patterns</p>
+      </article>
+
+    </section>
+
+    <!-- Main insights section -->
+    <section class="insights-section">
+
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">PERSONAL FINANCIAL REVIEW</p>
+          <h2>Spending Insights</h2>
+          <p class="section-description">
+            Transactions that differ from your historical spending patterns.
+          </p>
+        </div>
+
+        <span class="analysis-count">
+          {{ anomalyCount }} FLAGGED
+        </span>
+      </div>
+
+      @if (flaggedInsights.length > 0) {
+
+        <div class="transaction-list">
+
+          @for (item of flaggedInsights; track item.expenseId) {
+
+            <article class="transaction-card">
+
+              <div class="transaction-symbol">
+                {{ item.category.charAt(0).toUpperCase() }}
+              </div>
+
+              <div class="transaction-details">
+                <div class="transaction-title-row">
+                  <h3>{{ item.title }}</h3>
+
+                  <span
+                    class="severity"
+                    [class.high]="item.prediction.severity === 'high'"
+                    [class.medium]="item.prediction.severity === 'medium'">
+                    {{ item.prediction.severity }}
+                  </span>
+                </div>
+
+                <p class="transaction-meta">
+                  {{ item.category }} &nbsp;·&nbsp; {{ item.date }}
+                </p>
+
+                <p class="explanation">
+                  {{ item.prediction.explanation }}
+                </p>
+              </div>
+
+              <div class="transaction-amount">
+                ₹{{ item.amount.toFixed(2) }}
+              </div>
+
+            </article>
+
+          }
+
+        </div>
+
+      } @else {
+
+        <div class="empty-state">
+          <div class="empty-icon">✓</div>
+          <h3>All looks well.</h3>
+          <p>
+            No unusual transactions were detected in the records
+            analysed so far.
+          </p>
+        </div>
+
+      }
+
+    </section>
+
+    <!-- Model information -->
+    <section class="model-information">
+      <div class="model-info-icon">✦</div>
+
+      <div>
+        <p class="eyebrow">POWERED BY MACHINE LEARNING</p>
+        <h3>SpendSense Intelligence Engine</h3>
+        <p>
+          Your spending patterns are evaluated using an
+          Isolation Forest anomaly detection model.
+        </p>
+      </div>
+
+      <div class="version">
+        <span>MODEL VERSION</span>
+        <strong>2.0.0</strong>
+        <small>INR MODEL</small>
+      </div>
+    </section>
+
+    <footer class="dashboard-footer">
+      SPENDSENSE AI &nbsp;·&nbsp; YOUR FINANCES, UNDERSTOOD.
+    </footer>
+
+  }
+
+</div>

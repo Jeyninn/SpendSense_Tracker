@@ -1,0 +1,147 @@
+<div class="expense-list-container">
+
+  <div class="list-header">
+    <div>
+      <span class="eyebrow">PERSONAL FINANCIAL RECORDS</span>
+      <h2>Expense Ledger</h2>
+      <p>A detailed record of your expenditures.</p>
+    </div>
+
+    <div class="ledger-mark">
+      <span>THE</span>
+      <strong>LEDGER</strong>
+      <span>COLLECTION</span>
+    </div>
+  </div>
+
+  <div class="table-card">
+
+    <div class="table-heading">
+      <span>TRANSACTION HISTORY</span>
+      <span>{{ totalElements }} RECORDS</span>
+    </div>
+
+    @if (loading) {
+      <div class="loading-state">
+        Loading your financial records...
+      </div>
+    }
+
+    @if (errorMessage) {
+      <div class="error-state">
+        {{ errorMessage }}
+        <button class="retry-btn" (click)="loadExpenses()">
+          Retry
+        </button>
+      </div>
+    }
+
+    @if (!loading && !errorMessage) {
+
+      <div class="table-responsive">
+
+        <table>
+          <thead>
+            <tr>
+              <th>Expense</th>
+              <th>Category</th>
+              <th>Date</th>
+              <th>Amount</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+
+          <tbody>
+
+            @for (exp of expenses; track exp.id) {
+              <tr>
+                <td class="expense-title">
+                  {{ exp.title }}
+                </td>
+
+                <td>
+                  <span class="category-label">
+                    {{ exp.category }}
+                  </span>
+                </td>
+
+                <td class="date-cell">
+                  {{ exp.date }}
+                </td>
+
+                <td class="amount-cell">
+                  ₹{{ exp.amount }}
+                </td>
+
+                <td>
+                  <button
+                    class="delete-btn"
+                    (click)="exp.id !== undefined && deleteExpense(exp.id)"
+                  >
+                    Remove
+                  </button>
+                </td>
+              </tr>
+            }
+
+            @if (expenses.length === 0) {
+              <tr>
+                <td colspan="5" class="empty-state">
+                  <span class="empty-symbol">◇</span>
+                  <h3>Your ledger is clear</h3>
+                  <p>No expenses have been recorded yet.</p>
+                </td>
+              </tr>
+            }
+
+          </tbody>
+        </table>
+
+      </div>
+
+      <!-- Pagination -->
+      @if (totalElements > 0) {
+
+        <div class="pagination">
+
+          <span class="pagination-info">
+            Showing {{ startRecord }}–{{ endRecord }}
+            of {{ totalElements }} transactions
+          </span>
+
+          <div class="pagination-controls">
+
+            <button
+              class="page-btn"
+              [disabled]="currentPage === 0"
+              (click)="previousPage()"
+            >
+              ← Previous
+            </button>
+
+            <span class="page-number">
+              {{ currentPage + 1 }} / {{ totalPages }}
+            </span>
+
+            <button
+              class="page-btn"
+              [disabled]="currentPage >= totalPages - 1"
+              (click)="nextPage()"
+            >
+              Next →
+            </button>
+
+          </div>
+
+        </div>
+      }
+    }
+
+    <div class="table-footer">
+      <span>CONFIDENTIAL · PERSONAL USE</span>
+      <span>FINANCIAL LEDGER</span>
+    </div>
+
+  </div>
+
+</div>

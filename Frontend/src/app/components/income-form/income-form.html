@@ -1,0 +1,105 @@
+
+<div class="income-page">
+
+  <div class="page-heading">
+    <span class="eyebrow">PERSONAL FINANCE JOURNAL</span>
+    <h1>Record your <em>income.</em></h1>
+    <p>Every earning is a step towards financial clarity.</p>
+  </div>
+
+  <div class="income-card">
+
+    <div class="card-heading">
+      <div>
+        <span class="section-label">NEW TRANSACTION</span>
+        <h2>Income details</h2>
+      </div>
+      <span class="rupee-symbol">₹</span>
+    </div>
+
+    <form [formGroup]="incomeForm" (ngSubmit)="onSubmit()">
+
+      <div class="form-group">
+        <label>Income Source</label>
+        <input
+          type="text"
+          formControlName="source"
+          placeholder="e.g. Monthly Salary, Freelancing"
+        />
+        @if (incomeForm.controls.source.touched &&
+             incomeForm.controls.source.invalid) {
+          <small class="error">Please enter an income source.</small>
+        }
+      </div>
+
+      <div class="form-row">
+
+        <div class="form-group">
+          <label>Amount (₹)</label>
+          <input
+            type="number"
+            formControlName="amount"
+            placeholder="Enter amount"
+            min="1"
+          />
+          @if (incomeForm.controls.amount.touched &&
+               incomeForm.controls.amount.invalid) {
+            <small class="error">Enter a valid amount.</small>
+          }
+        </div>
+
+        <div class="form-group">
+          <label>Category</label>
+          <select formControlName="category">
+            <option value="" disabled>Select category</option>
+            <option value="Salary">Salary</option>
+            <option value="Freelance">Freelance</option>
+            <option value="Business">Business</option>
+            <option value="Investment">Investment</option>
+            <option value="Gift">Gift</option>
+            <option value="Other">Other</option>
+          </select>
+          @if (incomeForm.controls.category.touched &&
+               incomeForm.controls.category.invalid) {
+            <small class="error">Select a category.</small>
+          }
+        </div>
+
+      </div>
+
+      <div class="form-group">
+        <label>Date Received</label>
+        <input type="date" formControlName="date" />
+      </div>
+
+      <div class="form-group">
+        <label>Description <span>(Optional)</span></label>
+        <textarea
+          formControlName="description"
+          rows="4"
+          placeholder="Add a note about this income..."
+        ></textarea>
+      </div>
+
+      @if (errorMessage) {
+        <p class="error">{{ errorMessage }}</p>
+      }
+
+      <div class="form-actions">
+        <button type="button" class="cancel-btn" (click)="cancel()">
+          Cancel
+        </button>
+
+        <button type="submit" class="save-btn" [disabled]="loading">
+          {{ loading ? 'Saving...' : 'Save Income' }}
+          <span>↗</span>
+        </button>
+      </div>
+
+    </form>
+
+  </div>
+
+  <p class="bottom-note">✳ &nbsp; A thoughtful record of every earning.</p>
+
+</div>

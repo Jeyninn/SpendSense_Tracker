@@ -1,0 +1,133 @@
+<div class="profile-page">
+
+  <div class="profile-card">
+
+    <!-- Profile Header -->
+    <div class="profile-header">
+
+      <div class="profile-avatar">
+        {{ userInitial }}
+      </div>
+
+      <div class="profile-heading">
+        <h1>{{ userName }}</h1>
+        <p>Personal Account</p>
+      </div>
+
+    </div>
+
+
+    <!-- Decorative divider -->
+    <div class="divider"></div>
+
+
+    <!-- Account Information -->
+    <section class="profile-section">
+
+      <h2>Account Information</h2>
+      <p class="section-subtitle">
+        Your personal account details
+      </p>
+
+      <div class="info-grid">
+
+        <!-- Name -->
+        <div class="info-item">
+
+          <div class="info-icon">
+            👤
+          </div>
+
+          <div>
+            <span class="info-label">Full Name</span>
+            <span class="info-value">{{ userName }}</span>
+          </div>
+
+        </div>
+
+
+        <!-- Email -->
+        <div class="info-item">
+
+          <div class="info-icon">
+            ✉️
+          </div>
+
+          <div>
+            <span class="info-label">Email Address</span>
+            <span class="info-value">{{ userEmail }}</span>
+          </div>
+
+        </div>
+
+
+        <!-- Account Type -->
+        <div class="info-item">
+
+          <div class="info-icon">
+            💼
+          </div>
+
+          <div>
+            <span class="info-label">Account Type</span>
+            <span class="info-value">Personal Account</span>
+          </div>
+
+        </div>
+
+
+        <!-- Member -->
+        <div class="info-item">
+
+          <div class="info-icon">
+            🌱
+          </div>
+
+          <div>
+            <span class="info-label">Account Status</span>
+            <span class="info-value">Active</span>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- Quick Actions -->
+    <section class="profile-section">
+
+      <h2>Quick Actions</h2>
+
+      <div class="actions">
+
+        <button class="action-btn" routerLink="/expenselist">
+          <span>📊</span>
+          <div>
+            <strong>View Transactions</strong>
+            <small>See your expense history</small>
+          </div>
+        </button>
+
+        <button class="action-btn" routerLink="/expenseform">
+          <span>➕</span>
+          <div>
+            <strong>Add Expense</strong>
+            <small>Record a new transaction</small>
+          </div>
+        </button>
+
+      </div>
+
+    </section>
+
+
+    <!-- Logout -->
+    <button class="logout-btn" (click)="logout()">
+      🚪 Logout
+    </button>
+
+  </div>
+
+</div>
