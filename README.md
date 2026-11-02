@@ -1,5 +1,17 @@
-
 # SpendSense AI – Intelligent Expense Tracker
+
+<p align="center">
+  <b>AI-Powered Personal Finance Management</b>
+</p>
+
+##  Live Demo
+
+- **Frontend:** [SpendSense AI]([https://spend-sense-tracker-nine.vercel.app/](https://spend-sense-tracker-osof49rhd-just-meh.vercel.app/))
+- **Backend API:** [Spring Boot Backend](https://spendsense-backend-2hk7.onrender.com)
+- **ML Service:** [FastAPI Service](https://spendsense-tracker.onrender.com)
+- **API Documentation:** [FastAPI Swagger Docs](https://spendsense-tracker.onrender.com/docs)
+
+---
 
 An AI-powered personal finance management application built using **Angular, Spring Boot, TiDB Cloud, and FastAPI**. SpendSense AI helps users manage their finances, track expenses and income, visualize spending patterns, and identify unusual transactions using machine learning.
 
