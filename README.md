@@ -6,7 +6,7 @@
 
 ##  Live Demo
 
-- **Frontend:** [SpendSense AI]([https://spend-sense-tracker-nine.vercel.app/](https://spend-sense-tracker-osof49rhd-just-meh.vercel.app/))
+- **Frontend:** [SpendSense AI](https://spend-sense-tracker-osof49rhd-just-meh.vercel.app)
 - **Backend API:** [Spring Boot Backend](https://spendsense-backend-2hk7.onrender.com)
 - **ML Service:** [FastAPI Service](https://spendsense-tracker.onrender.com)
 - **API Documentation:** [FastAPI Swagger Docs](https://spendsense-tracker.onrender.com/docs)
